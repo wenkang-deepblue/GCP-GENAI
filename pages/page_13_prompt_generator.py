@@ -5,6 +5,9 @@ import vertexai
 from vertexai.generative_models import GenerativeModel, Part, FinishReason, SafetySetting
 import vertexai.preview.generative_models as generative_models
 from auth import login, callback, logout
+import google.auth
+from google.oauth2 import service_account
+import google.auth.transport.requests
 
 # 处理OAuth回调
 if "code" in st.query_params:
