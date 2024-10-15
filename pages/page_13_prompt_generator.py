@@ -18,6 +18,30 @@ if not login():
 if st.sidebar.button("登出"):
     logout()
 
+with st.sidebar:
+    st.markdown(f"""
+        <div style="background-color: #d4edda; border-color: #c3e6cb; color: #155724; 
+                    padding: 10px; border-radius: 0.25rem; text-align: center; margin-bottom: 10px;">
+            <p style="margin-bottom: 0;">欢迎!</p>
+        </div>
+    """, unsafe_allow_html=True)
+    left_co, cent_co,last_co = st.columns([0.35,0.33,0.32])
+    with cent_co:
+        if st.button("log out"):
+            logout()
+
+credentials_info = st.secrets["GOOGLE_APPLICATION_CREDENTIALS"]
+
+creds = service_account.Credentials.from_service_account_info(
+    credentials_info,
+    scopes=["https://www.googleapis.com/auth/cloud-platform"]
+)
+
+auth_req = google.auth.transport.requests.Request()
+creds.refresh(auth_req)
+
+vertexai.init(project="lwk-genai-test", location="us-central1", credentials=creds)
+
 # Streamlit 应用界面
 left_co, cent_co,last_co = st.columns([0.35,0.32,0.33])
 with cent_co:
