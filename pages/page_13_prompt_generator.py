@@ -14,10 +14,6 @@ if "code" in st.query_params:
 if not login():
     st.stop()
 
-# 添加登出按钮
-if st.sidebar.button("登出"):
-    logout()
-
 with st.sidebar:
     st.markdown(f"""
         <div style="background-color: #d4edda; border-color: #c3e6cb; color: #155724; 
