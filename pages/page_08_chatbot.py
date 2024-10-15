@@ -153,6 +153,7 @@ with st.sidebar:
         
     st.page_link("homepage.py", label="主页", icon="🏠")
     st.page_link("pages/page_01_text_generation.py", label="文本生成", icon="📖")
+    st.page_link("pages/page_13_prompt_generator.py", label="提示词生成器", icon="✨")
     st.page_link("pages/page_02_media_understanding.py", label="视频理解", icon="🎞️")
     st.page_link("pages/page_03_translation.py", label="文本翻译", icon="🇺🇳")
     st.page_link("pages/page_04_travel_advisor.py", label="旅游顾问", icon="✈️")
