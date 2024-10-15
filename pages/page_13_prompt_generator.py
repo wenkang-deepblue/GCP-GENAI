@@ -62,7 +62,7 @@ with st.sidebar:
     left_co, cent_co,last_co = st.columns([0.28,0.5,0.22])
     with cent_co:
         st.title(":blue[GCP Gen]:rainbow[AI]")
-    temperature = st.slider("调整模型Temperature", min_value=0.0, max_value=2.0, value=1.5, help=(
+    temperature = st.slider("调整模型Temperature", min_value=0.0, max_value=2.0, value=1.0, help=(
         """
         Temperature用于响应生成期间的采样，这发生在应用 topP 和 topK 时。Temperature控制了token选择中的随机程度。对于需要较少开放式或创造性响应的提示，较低的temperature是好的，而较高的temperature可以导致更多样化或创造性的结果。Temperature为 0 意味着始终选择最高概率的token。在这种情况下，给定提示的响应大多是确定的，但仍有可能出现少量变化。
         
