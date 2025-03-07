@@ -74,7 +74,7 @@ def login():
         # Create invite code input and login button
         col1, col2, col3 = st.columns([1, 4, 1])
         with col2:
-            invite_code = st.text_input("Please Enter Your Invite Code", placeholder="Enter Your Invite Code", type="password")
+            invite_code = st.text_input("Please Enter Your Invite Code", placeholder="Please Enter Your Invite Code", type="password")
             
             # Custom login button
             button_gif_url = "https://storage.googleapis.com/ghackathon/blue-gold.gif"
