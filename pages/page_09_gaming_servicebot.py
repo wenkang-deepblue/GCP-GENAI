@@ -23,7 +23,7 @@ with st.sidebar:
     """, unsafe_allow_html=True)
     left_co, cent_co,last_co = st.columns([0.35,0.33,0.32])
     with cent_co:
-        if st.button("log out"):
+        if st.button("退出"):
             logout()
 
 def custom_page_link(url, label, icon, new_tab=False):
