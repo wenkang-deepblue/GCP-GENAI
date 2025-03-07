@@ -191,7 +191,7 @@ def login():
                 <a href="{st.secrets["developer_profile_link"]}" 
                 style="color: #8AB4F8; text-decoration: underline; font-weight: bold;" target="_blank">{st.secrets["developer_name"]}</a>
                 <span style="color: white;"> &nbsp;&nbsp;|&nbsp;&nbsp; Powered by </span>
-                <img src="https://storage.googleapis.com/ghackathon/GoogleCloud_logo_36px.png" alt="Logo" style="height: 16px; vertical-align: middle; margin: 0 2px; transform: translateY(-0.5px);">
+                <img src="https://storage.googleapis.com/ghackathon/GoogleCloud_logo_36px.png" alt="Logo" style="height: 18px; vertical-align: middle; margin: 0 2px; transform: translateY(-1px);">
                 <span style="color: white; font-weight: bold;">Vertex AI</span>
                 </p>
             </div>
