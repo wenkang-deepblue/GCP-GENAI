@@ -180,9 +180,9 @@ def login():
         </style>
         <div class="footer-links">
             <div class="policy-links">
-                <a href="https://gcp-genai-zh.streamlit.app/terms_of_service" target="_blank">用户服务协议</a>
+                <a href="https://gcp-genai-zh.streamlit.app/terms_of_service" target="_blank">Terms of Service</a>
                 &nbsp;&nbsp;&nbsp;&nbsp;
-                <a href="https://gcp-genai-zh.streamlit.app/privacy_policy" target="_blank">用户隐私政策</a>
+                <a href="https://gcp-genai-zh.streamlit.app/privacy_policy" target="_blank">Privacy Policy</a>
             </div>
             <div class="copyright-text">
                 <p style="text-align: center; margin: 0;">
