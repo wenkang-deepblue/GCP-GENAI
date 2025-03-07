@@ -279,7 +279,7 @@ st.markdown('''
             <a href="{developer_profile_link}" style="text-decoration: underline; font-weight: bold;">{developer_name}</a>
           </span>
           <span> &nbsp;&nbsp;|&nbsp;&nbsp Powered by </span>
-          <img src="https://storage.googleapis.com/ghackathon/GoogleCloud_logo_36px.png" alt="Logo" style="height: 16px; vertical-align: middle; margin: 0 2px; transform: translateY(-0.5px);">
+          <img src="https://storage.googleapis.com/ghackathon/GoogleCloud_logo_36px.png" alt="Logo" style="height: 18px; vertical-align: middle; margin: 0 2px; transform: translateY(-1px);">
           <span>Vertex AI</span>
         </p>
       </div>
