@@ -1,0 +1,8 @@
+secrets.toml
+.streamlit/secrets.toml
+gcp-genai-main-en/
+__pycache__/
+update_footer.py
+.DS_Store
+.devcontainer/
+.devcontainer/devcontainer.json
