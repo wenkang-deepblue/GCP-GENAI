@@ -1,6 +1,6 @@
 import streamlit as st
 from auth import login, logout
-from components import english_version_link, save_invite_code
+from components import chinese_version_link, save_invite_code
 
 #this will showed on the top of user's
 st.set_page_config(
@@ -29,7 +29,7 @@ st.markdown(f"""
 """, unsafe_allow_html=True)
 
 with st.sidebar:
-    st.markdown(english_version_link(), unsafe_allow_html=True)
+    st.markdown(chinese_version_link(), unsafe_allow_html=True)
 
     st.markdown(f"""
         <div style="background-color: #d4edda; border-color: #c3e6cb; color: #155724; 
