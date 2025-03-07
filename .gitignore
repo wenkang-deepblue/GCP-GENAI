@@ -1,0 +1,4 @@
+secrets.toml
+.streamlit/secrets.toml
+gcp-genai-main/
+__pycache__/
