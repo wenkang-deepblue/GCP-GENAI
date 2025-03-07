@@ -10,11 +10,20 @@ from PIL import Image
 import time
 import uuid
 from auth import login, logout
+from components import english_version_link, save_invite_code
+
+st.set_page_config(
+    page_title="GCP GenAI",
+    page_icon="👋",
+)
+
+save_invite_code()
 
 if not login():
     st.stop()
 
 with st.sidebar:
+    st.markdown(english_version_link(), unsafe_allow_html=True)
     st.markdown(f"""
         <div style="background-color: #d4edda; border-color: #c3e6cb; color: #155724; 
                     padding: 10px; border-radius: 0.25rem; text-align: center; margin-bottom: 10px;">
@@ -79,8 +88,8 @@ left_co, cent_co,last_co = st.columns([0.24,0.51,0.25])
 with cent_co:
     st.subheader('', divider='rainbow')
 
-#Sidebar界面
 with st.sidebar:
+    
     left_co, cent_co,last_co = st.columns([0.34,0.33,0.33])
     with cent_co:
         st.image('https://storage.googleapis.com/ghackathon/image2.gif')
@@ -221,7 +230,7 @@ def generate_text(messages, file_data=None):
         st.error(f"生成文本时发生错误: {str(e)}")
         yield None
 
-# 创建一个容器放置对话内容
+# 放置对话内容的容器
 chat_container = st.container()
 
 # 在容器中显示聊天历史和新消息
@@ -248,7 +257,7 @@ def image_preview():
             
 uploaded_file = st.file_uploader("上传图片文件", type=['jpg', 'jpeg', 'png'], key=f"file_uploader_{st.session_state[f'{APP_ID}_file_key']}")
 
-# 创建一个用于预览的占位符
+# 用于预览的占位符
 preview_placeholder = st.empty()
 
 if uploaded_file is not None:
@@ -309,13 +318,13 @@ if user_input:
         if st.session_state[f'{APP_ID}_file_uploaded']:
             clear_file()
 
-# 使页面滚动到底部
 st.markdown('<script>window.scrollTo(0, document.body.scrollHeight);</script>', unsafe_allow_html=True)
+
+
 
 st.markdown("<div style='margin-bottom: 60px;'></div>", unsafe_allow_html=True)
 
-# 将 CSS 和 JS 注入到页面中
-st.markdown("""
+st.markdown('''
     <style>
     .footer {
         position: fixed;
@@ -326,48 +335,69 @@ st.markdown("""
         margin-left: 11rem;
         text-align: center;
         z-index: 999;
+        background-color: rgba(255, 255, 255, 0.5);
+        color: black;
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+    }
+    
+    @media (prefers-color-scheme: dark) {
+        .footer {
+            background-color: rgba(14, 17, 23, 0.8) !important;
+            color: white !important;
+            backdrop-filter: blur(5px) !important;
+            -webkit-backdrop-filter: blur(5px) !important;
+        }
     }
     </style>
 
     <script>
-    function setFooterTheme(){
-       const isDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-       let style = document.getElementById("custom-footer-style");
-       if(!style) {
-          // 如果没有style元素，则新建一个
-          style = document.createElement('style');
-          style.id = "custom-footer-style";
-          document.head.appendChild(style);
-       }
-       if(isDark){
-          style.innerText = `
-          .footer {
-              background-color: rgba(30, 34, 39, 1);
-              color: white;
-          }
-          `;
-       } else {
-          style.innerText = `
-          .footer {
-              background-color: white;
-              color: black;
-          }
-          `;
-       }
-    }
-    
-    // 初始化设置
-    setFooterTheme();
-    
-    // 监听系统主题变化
-    if(window.matchMedia){
-       window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', setFooterTheme);
-    }
+    document.addEventListener("DOMContentLoaded", function() {
+        setTimeout(function() {
+            const isDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const footer = document.querySelector('.footer');
+            
+            if (footer) {
+                if (isDark) {
+                    footer.style.backgroundColor = 'rgba(14, 17, 23, 0.8)';
+                    footer.style.color = 'white';
+                    footer.style.backdropFilter = 'blur(5px)';
+                    footer.style.webkitBackdropFilter = 'blur(5px)';
+                } else {
+                    footer.style.backgroundColor = 'rgba(255, 255, 255, 0.5)';
+                    footer.style.color = 'black';
+                    footer.style.backdropFilter = 'blur(5px)';
+                    footer.style.webkitBackdropFilter = 'blur(5px)';
+                }
+            }
+            
+            if (window.matchMedia) {
+                window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
+                    const isDarkNow = e.matches;
+                    const footerNow = document.querySelector('.footer');
+                    
+                    if (footerNow) {
+                        if (isDarkNow) {
+                            footerNow.style.backgroundColor = 'rgba(14, 17, 23, 0.8)';
+                            footerNow.style.color = 'white';
+                            footerNow.style.backdropFilter = 'blur(5px)';
+                            footerNow.style.webkitBackdropFilter = 'blur(5px)';
+                        } else {
+                            footerNow.style.backgroundColor = 'rgba(255, 255, 255, 0.5)';
+                            footerNow.style.color = 'black';
+                            footerNow.style.backdropFilter = 'blur(5px)';
+                            footerNow.style.webkitBackdropFilter = 'blur(5px)';
+                        }
+                    }
+                });
+            }
+        }, 500);
+    });
     </script>
-""", unsafe_allow_html=True)
+''', unsafe_allow_html=True)
 
-# 添加 footer HTML 代码
-st.markdown("""
+# footer HTML
+st.markdown('''
     <div class="footer">
       <div class="footer-content">
         <p style="margin: 0;">
@@ -380,7 +410,7 @@ st.markdown("""
         </p>
       </div>
     </div>
-""".format(
+'''.format(
     developer_profile_link=st.secrets["developer_profile_link"],
     developer_name=st.secrets["developer_name"]
 ), unsafe_allow_html=True)

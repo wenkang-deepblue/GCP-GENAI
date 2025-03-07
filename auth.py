@@ -1,16 +1,18 @@
 import streamlit as st
 import os
+from components import save_invite_code
 
 # 设置允许的邀请码
 INVITE_CODES = st.secrets["INVITE_CODES"].split(",")  # 从secrets中获取邀请码列表，以逗号分隔
 
 def login():
     if "logged_in" not in st.session_state:
-        # 获取URL查询参数
-        query_params = st.query_params
-        auto_invite_code = query_params.get("invite_code", "")
+        save_invite_code()
         
-        # 如果URL中有有效邀请码，自动登录
+        # 从会话状态获取邀请码
+        auto_invite_code = st.session_state.get("invite_code", "")
+        
+        # 如果有有效邀请码，自动登录
         if auto_invite_code in INVITE_CODES:
             st.session_state.logged_in = True
             st.session_state.user_email = "invited_user@example.com"

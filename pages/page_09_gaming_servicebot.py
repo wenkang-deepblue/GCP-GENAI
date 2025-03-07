@@ -1,11 +1,20 @@
 import streamlit as st
 import streamlit.components.v1 as components
 from auth import login, logout
+from components import english_version_link, save_invite_code
+
+st.set_page_config(
+    page_title="GCP GenAI",
+    page_icon="👋",
+)
+
+save_invite_code()
 
 if not login():
     st.stop()
 
 with st.sidebar:
+    st.markdown(english_version_link(), unsafe_allow_html=True)
     st.markdown(f"""
         <div style="background-color: #d4edda; border-color: #c3e6cb; color: #155724; 
                     padding: 10px; border-radius: 0.25rem; text-align: center; margin-bottom: 10px;">
@@ -18,6 +27,15 @@ with st.sidebar:
             logout()
 
 def custom_page_link(url, label, icon, new_tab=False):
+    # 获取当前会话状态中的邀请码
+    invite_code = st.session_state.get("invite_code", "")
+    
+    # 添加问号作为查询参数的开始
+    if invite_code:
+        if "?" in url:
+            url = f"{url}&invite_code={invite_code}"
+        else:
+            url = f"{url}?invite_code={invite_code}"
     
     if new_tab:
         st.markdown(
@@ -58,6 +76,7 @@ with cent_co:
     st.subheader('', divider='rainbow')
     
 with st.sidebar:
+    
     left_co, cent_co,last_co = st.columns([0.34,0.33,0.33])
     with cent_co:
             st.image('https://storage.googleapis.com/ghackathon/image2.gif')
@@ -75,7 +94,7 @@ with st.sidebar:
     st.page_link("pages/page_07_image_generation.py", label="图片生成", icon="🎨")
     st.page_link("pages/page_08_chatbot.py", label="聊天机器人", icon="💬")
     st.page_link("pages/page_09_gaming_servicebot.py", label="游戏客服平台", icon="🤖")
-    st.page_link("pages/page_10_ecommerce_servicebot.py", label="电商客服平台", icon="🤖")
+    custom_page_link("https://gcp-genai-zh.streamlit.app/page_10_ecommerce_servicebot", label="电商客服平台", icon="🤖")
     st.page_link("pages/page_11_claude_chatbot.py", label="Claude3.5聊天机器人", icon="💬")
     st.page_link("pages/page_12_llama_chatbot.py", label="Llama3.1聊天机器人", icon="💬")
     st.page_link("https://pantheon.corp.google.com/translation/hub", label="GCP翻译门户", icon="🌎")
@@ -99,7 +118,6 @@ with st.sidebar:
     st.page_link("pages/terms_of_service.py", label="用户服务协议", icon="📄")
     st.page_link("pages/privacy_policy.py", label="用户隐私政策", icon="🔒")
 
-# Embed Dialogflow code within an HTML component
 components.html("""
 <link rel="stylesheet" href="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/themes/df-messenger-default.css">
 <script src="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/df-messenger.js"></script>
@@ -149,10 +167,11 @@ components.html("""
 </style>
 """, height=600)
 
+
+
 st.markdown("<div style='margin-bottom: 60px;'></div>", unsafe_allow_html=True)
 
-# 将 CSS 和 JS 注入到页面中
-st.markdown("""
+st.markdown('''
     <style>
     .footer {
         position: fixed;
@@ -163,48 +182,69 @@ st.markdown("""
         margin-left: 11rem;
         text-align: center;
         z-index: 999;
+        background-color: rgba(255, 255, 255, 0.5);
+        color: black;
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+    }
+    
+    @media (prefers-color-scheme: dark) {
+        .footer {
+            background-color: rgba(14, 17, 23, 0.8) !important;
+            color: white !important;
+            backdrop-filter: blur(5px) !important;
+            -webkit-backdrop-filter: blur(5px) !important;
+        }
     }
     </style>
 
     <script>
-    function setFooterTheme(){
-       const isDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-       let style = document.getElementById("custom-footer-style");
-       if(!style) {
-          // 如果没有style元素，则新建一个
-          style = document.createElement('style');
-          style.id = "custom-footer-style";
-          document.head.appendChild(style);
-       }
-       if(isDark){
-          style.innerText = `
-          .footer {
-              background-color: rgba(30, 34, 39, 1);
-              color: white;
-          }
-          `;
-       } else {
-          style.innerText = `
-          .footer {
-              background-color: white;
-              color: black;
-          }
-          `;
-       }
-    }
-    
-    // 初始化设置
-    setFooterTheme();
-    
-    // 监听系统主题变化
-    if(window.matchMedia){
-       window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', setFooterTheme);
-    }
+    document.addEventListener("DOMContentLoaded", function() {
+        setTimeout(function() {
+            const isDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const footer = document.querySelector('.footer');
+            
+            if (footer) {
+                if (isDark) {
+                    footer.style.backgroundColor = 'rgba(14, 17, 23, 0.8)';
+                    footer.style.color = 'white';
+                    footer.style.backdropFilter = 'blur(5px)';
+                    footer.style.webkitBackdropFilter = 'blur(5px)';
+                } else {
+                    footer.style.backgroundColor = 'rgba(255, 255, 255, 0.5)';
+                    footer.style.color = 'black';
+                    footer.style.backdropFilter = 'blur(5px)';
+                    footer.style.webkitBackdropFilter = 'blur(5px)';
+                }
+            }
+            
+            if (window.matchMedia) {
+                window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
+                    const isDarkNow = e.matches;
+                    const footerNow = document.querySelector('.footer');
+                    
+                    if (footerNow) {
+                        if (isDarkNow) {
+                            footerNow.style.backgroundColor = 'rgba(14, 17, 23, 0.8)';
+                            footerNow.style.color = 'white';
+                            footerNow.style.backdropFilter = 'blur(5px)';
+                            footerNow.style.webkitBackdropFilter = 'blur(5px)';
+                        } else {
+                            footerNow.style.backgroundColor = 'rgba(255, 255, 255, 0.5)';
+                            footerNow.style.color = 'black';
+                            footerNow.style.backdropFilter = 'blur(5px)';
+                            footerNow.style.webkitBackdropFilter = 'blur(5px)';
+                        }
+                    }
+                });
+            }
+        }, 500);
+    });
     </script>
-""", unsafe_allow_html=True)
+''', unsafe_allow_html=True)
 
-# 添加 footer HTML 代码
-st.markdown("""
+# footer HTML
+st.markdown('''
     <div class="footer">
       <div class="footer-content">
         <p style="margin: 0;">
@@ -217,7 +257,7 @@ st.markdown("""
         </p>
       </div>
     </div>
-""".format(
+'''.format(
     developer_profile_link=st.secrets["developer_profile_link"],
     developer_name=st.secrets["developer_name"]
 ), unsafe_allow_html=True)

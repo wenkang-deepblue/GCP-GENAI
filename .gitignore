@@ -2,3 +2,7 @@ secrets.toml
 .streamlit/secrets.toml
 gcp-genai-main/
 __pycache__/
+update_footer.py
+.DS_Store
+.devcontainer/
+.devcontainer/devcontainer.json
