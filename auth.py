@@ -3,7 +3,7 @@ import os
 from components import save_invite_code
 
 # 设置允许的邀请码
-INVITE_CODES = st.secrets["INVITE_CODES"].split(",")  # 从secrets中获取邀请码列表，以逗号分隔
+INVITE_CODES = st.secrets["INVITE_CODES"]
 
 def login():
     if "logged_in" not in st.session_state:
