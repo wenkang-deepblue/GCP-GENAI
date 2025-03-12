@@ -2,7 +2,7 @@ import streamlit as st
 import os
 from components import save_invite_code
 
-INVITE_CODES = st.secrets["INVITE_CODES"].split(",")
+INVITE_CODES = st.secrets["INVITE_CODES"]
 
 def login():
     if "logged_in" not in st.session_state:
