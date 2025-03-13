@@ -148,7 +148,7 @@ elif section == "5. Text Translation":
         Translation is currently one of the most used features by customers, whether for chat translation or content translation. The Text Translation section demonstrates Gemini's multilingual capabilities to customers.  
     2. **Prompt Examples:**  
         1. Texts:  
-        第⼀章 ⽤铅笔创造出来的国家  
+                        第⼀章 ⽤铅笔创造出来的国家  
         1915 年 12 ⽉ 16 ⽇，在伦敦唐宁街 10 号的⾸相官邸中，⼏个英国  
         ⼈⽤⼀根铅笔和⼀张地图对⼏千公⾥外的中东⼟地进⾏了分割。  
         此时，第⼀次世界⼤战已经爆发⼀年多，对阵的双⽅分别是以英  
