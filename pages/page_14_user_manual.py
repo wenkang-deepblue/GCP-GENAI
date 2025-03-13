@@ -102,11 +102,11 @@ elif section == "2. Text Generation":
     1. **Scenario:**  
         Help content creators such as screenwriters, web fiction writers, game script creators, etc., to quickly generate usable scripts or novels based on story outlines.  
     2. **Prompt Examples:**  
-        [Here](https://docs.google.com/document/d/15Nf4zkjA46wcFy_mr0miXU23w63FeauAzO5EVsVNJ80/edit?usp=sharing)  
+        [Here](https://storage.googleapis.com/lwk-rag-videos/drama_prompt.txt)  
     3. **Notes:**  
         1. Gemini API has a maximum output token limit of 8,192 tokens, so the text generation feature cannot generate content exceeding 8,192 tokens. To avoid generating overly long content, the prompt examples above only request two episodes of script;  
         2. If you need to generate longer content, please request only one part at a time;  
-        3. To maintain content consistency, you can leverage Gemini's long context capability by including both the plot outline and previously generated content as input prompts, as shown in the second paragraph of prompts in [this document](https://docs.google.com/document/d/15Nf4zkjA46wcFy_mr0miXU23w63FeauAzO5EVsVNJ80/edit?tab=t.0). Here are pre-generated scripts: [Episodes 1-2](https://storage.googleapis.com/lwk-rag-videos/%E7%9F%AD%E5%89%A7%E5%89%A7%E6%9C%AC(1-2%E9%9B%86).txt), [Episodes 3-4](https://storage.googleapis.com/lwk-rag-videos/%E7%9F%AD%E5%89%A7%E5%89%A7%E6%9C%AC(3-4%E9%9B%86).txt).  
+        3. To maintain content consistency, you can leverage Gemini's long context capability by including both the plot outline and previously generated content as input prompts, as shown in the second paragraph of prompts in [this document](https://storage.googleapis.com/lwk-rag-videos/drama_prompt.txt). Here are pre-generated scripts: [Episodes 1-2](https://storage.googleapis.com/lwk-rag-videos/%E7%9F%AD%E5%89%A7%E5%89%A7%E6%9C%AC(1-2%E9%9B%86).txt), [Episodes 3-4](https://storage.googleapis.com/lwk-rag-videos/%E7%9F%AD%E5%89%A7%E5%89%A7%E6%9C%AC(3-4%E9%9B%86).txt).  
     4. **Roadmap:**  
         1. Future versions will accept PDF documents and image uploads. Expected in early September (delayed with no ETA).
     """)
