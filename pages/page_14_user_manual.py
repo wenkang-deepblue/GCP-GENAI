@@ -105,7 +105,7 @@ elif section == "2. 文本生成":
     3. **注意事项：**  
         1. Gemini API最大output token限制是8,192个token，因此，使用文本生成功能不能生成超过8,192 token的内容。为了避免生成过长内容，上面的提示词示例中只要求生成两集剧本；  
         2. 如果要生成过长内容，请每次请求只生成一部分；  
-        3. 为了保持内容一致性，可以利用Gemini的长上下文能力，将剧情大纲与之前生成的内容一起作为提示词输入，如[这篇文档](https://docs.google.com/document/d/15Nf4zkjA46wcFy_mr0miXU23w63FeauAzO5EVsVNJ80/edit?tab=t.0)中的第二段提示词。这里是提前生成好的剧本：[第1-2集](https://drive.google.com/file/d/108oUg90b9Zpfov5uH13l-TyiwAF9H8v7/view?usp=drive_link&resourcekey=0-NI1DyNOVztJ1f8AFlKOpWQ)，[第3-4集](https://drive.google.com/file/d/1l9j3tHjAQJwjCuHaQtb4E0fThvf8oM34/view?usp=drive_link&resourcekey=0-xbmijuCti5xejbs5QwkQ3w)。  
+        3. 为了保持内容一致性，可以利用Gemini的长上下文能力，将剧情大纲与之前生成的内容一起作为提示词输入，如[这篇文档](https://docs.google.com/document/d/15Nf4zkjA46wcFy_mr0miXU23w63FeauAzO5EVsVNJ80/edit?tab=t.0)中的第二段提示词。这里是提前生成好的剧本：[第1-2集](https://storage.googleapis.com/lwk-rag-videos/%E7%9F%AD%E5%89%A7%E5%89%A7%E6%9C%AC(1-2%E9%9B%86).txt)，[第3-4集](https://storage.googleapis.com/lwk-rag-videos/%E7%9F%AD%E5%89%A7%E5%89%A7%E6%9C%AC(3-4%E9%9B%86).txt)。  
     4. **Roadmap：**  
         1. 未来版本，会接受PDF文档以及图片的上传功能。预计9月初改版（delayed with no ETA）。
     """)
@@ -146,7 +146,24 @@ elif section == "5. 文本翻译":
     1. **场景：**  
         客户目前使用最多的就是翻译，无论是聊天翻译，还是内容翻译。文本翻译板块就是向客户演示Gemini的多语言能力。  
     2. **提示词示例：**  
-        1. 文档：[以色列建国史](https://drive.google.com/file/d/10EziEY88MHfwJ5Vfw525jsEXcUjpzXoO/view?usp=drive_link&resourcekey=0-113NtXpeFPGpKl4bEedg8g)  
+        1. 文本：
+            第⼀章 ⽤铅笔创造出来的国家
+            1915 年 12 ⽉ 16 ⽇，在伦敦唐宁街 10 号的⾸相官邸中，⼏个英国
+            ⼈⽤⼀根铅笔和⼀张地图对⼏千公⾥外的中东⼟地进⾏了分割。
+            此时，第⼀次世界⼤战已经爆发⼀年多，对阵的双⽅分别是以英
+            国、法国、俄国为⾸的协约国，以及由德国、奥匈帝国、奥斯曼帝国
+            组成的同盟国。这些英国⼈此次坐在⼀起，是为了讨论如何把奥斯曼
+            帝国作为未来的战利品在协约国之间进⾏切分。
+            其中⼀个叫做赛克斯（Sykes）的⼈提议说，不如⼤家从地图左边
+            的城市 Acre 的字⺟ e 开始，画⼀条直线到地图右边 Kirkuk 的最后⼀
+            个字⺟ k 上⾯；直线以上的区域为法国的势⼒范围，直线以下的区域
+            为英国的势⼒范围。在座的⼈都觉得这条直线既简单⼜清楚，于是这
+            个提议很快就得到了英国⾸相的同意。
+            在与法国进⾏商议后，法国⼈也同意了以这条直线来划分英法两国
+            在中东的势⼒范围。双⽅于次年的 5 ⽉ 16 ⽇签署了赛克斯-⽪克特秘
+            密协定（Sykes-Picot Agreement），将这条⽤铅笔画下的直线以条约的
+            形式确定了下来。协议中还规定，英法有权在各⾃势⼒范围内进⼀步
+            划定国家间的边界。 
         2. 任何你自己找到的大段文字  
     3. **注意事项：**  
         1. “文本翻译”板块在代码中已经将前置提示词写好了，在提示词对话框中不需要输入任何类似“请将下面的文本翻译成英文”之类的文字。直接将需要翻译的文本copy到提示词对话框中，并在左边栏选择目标语言，点击“开始翻译”即可。  
