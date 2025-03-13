@@ -101,11 +101,11 @@ elif section == "2. 文本生成":
     1. **场景：**  
         帮助内容创作者，如编剧，网文作家，游戏剧本制作人等，根据故事大纲快速生成可用的剧本或小说。  
     2. **提示词示例：**  
-        [这里](https://docs.google.com/document/d/15Nf4zkjA46wcFy_mr0miXU23w63FeauAzO5EVsVNJ80/edit?usp=sharing)  
+        [这里](https://storage.googleapis.com/lwk-rag-videos/drama_prompt.txt)  
     3. **注意事项：**  
         1. Gemini API最大output token限制是8,192个token，因此，使用文本生成功能不能生成超过8,192 token的内容。为了避免生成过长内容，上面的提示词示例中只要求生成两集剧本；  
         2. 如果要生成过长内容，请每次请求只生成一部分；  
-        3. 为了保持内容一致性，可以利用Gemini的长上下文能力，将剧情大纲与之前生成的内容一起作为提示词输入，如[这篇文档](https://docs.google.com/document/d/15Nf4zkjA46wcFy_mr0miXU23w63FeauAzO5EVsVNJ80/edit?tab=t.0)中的第二段提示词。这里是提前生成好的剧本：[第1-2集](https://storage.googleapis.com/lwk-rag-videos/%E7%9F%AD%E5%89%A7%E5%89%A7%E6%9C%AC(1-2%E9%9B%86).txt)，[第3-4集](https://storage.googleapis.com/lwk-rag-videos/%E7%9F%AD%E5%89%A7%E5%89%A7%E6%9C%AC(3-4%E9%9B%86).txt)。  
+        3. 为了保持内容一致性，可以利用Gemini的长上下文能力，将剧情大纲与之前生成的内容一起作为提示词输入，如[这篇文档](https://storage.googleapis.com/lwk-rag-videos/drama_prompt.txt)中的第二段提示词。这里是提前生成好的剧本：[第1-2集](https://storage.googleapis.com/lwk-rag-videos/%E7%9F%AD%E5%89%A7%E5%89%A7%E6%9C%AC(1-2%E9%9B%86).txt)，[第3-4集](https://storage.googleapis.com/lwk-rag-videos/%E7%9F%AD%E5%89%A7%E5%89%A7%E6%9C%AC(3-4%E9%9B%86).txt)。  
     4. **Roadmap：**  
         1. 未来版本，会接受PDF文档以及图片的上传功能。预计9月初改版（delayed with no ETA）。
     """)
