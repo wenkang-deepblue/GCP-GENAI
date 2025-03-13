@@ -128,8 +128,8 @@ elif section == "4. 视频理解":
     1. **场景：**  
         与“文本生成”板块为同一条故事线：内容创作者难免有才思枯竭的时候，或者想复刻某一款流行的短剧，这时候，就可以利用Gemini的多模态能力，来根据某一个短剧，视频，或者图片，生成一个故事大纲。将生成的故事大纲，copy到“文本生成”板块中，就可以快速的制作一个新的剧本；  
     2. **提示词示例：**  
-        1. 请根据[这张图片](gs://lwk-rag-videos/galaxy banner with GCP logo.png)，用中文讲述一个1000字左右的故事。  
-        2. 请根据[这段视频](gs://lwk-rag-videos/Google - One more day until GoogleIO.mp4)，用中文讲述一个1000字左右的故事。  
+        1. 请根据[这张图片](https://storage.googleapis.com/lwk-rag-videos/galaxy%20banner%20with%20GCP%20logo.png)，用中文讲述一个1000字左右的故事。  
+        2. 请根据[这段视频](https://storage.googleapis.com/lwk-rag-videos/Google%20-%20One%20more%20day%20until%20GoogleIO.mp4)，用中文讲述一个1000字左右的故事。  
     3. **注意事项：**  
         1. 目前的应用是免费托管在第三方平台上，受制于第三方平台的功能及能力，文件上传时并不能成功，请尽量使用已经上传的图片和视频。  
         2. 上面的图片和视频已经上传到了存储桶中，可以直接将它们的gcs uri链接copy到GCS链接对话框中即可：  
