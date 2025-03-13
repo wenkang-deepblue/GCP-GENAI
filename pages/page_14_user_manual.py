@@ -129,8 +129,8 @@ elif section == "4. Video Understanding":
     1. **Scenario:**  
         This follows the same storyline as the "Text Generation" section: content creators inevitably face creative blocks or want to recreate popular short dramas. In these cases, they can leverage Gemini's multimodal capabilities to generate a story outline based on a short drama, video, or image. By copying the generated outline to the "Text Generation" section, they can quickly create a new script.  
     2. **Prompt Examples:**  
-        1. Please create a story of about 1000 words in English based on [this image](https://drive.google.com/file/d/1bqxBUmbVNBVj81dOWro-4ieJpq-rXasW/view?usp=drive_link&resourcekey=0-PE7414xJXq7GRPPwn8hEVg).  
-        2. Please create a story of about 1000 words in English based on [this video](https://drive.google.com/file/d/1BCxlmyO8mUkDDlJsi-O5CJbEVycUh6Fu/view?usp=drive_link&resourcekey=0-4azgwchGwPkZgNU0OjSURA).  
+        1. Please create a story of about 1000 words in English based on [this image](https://storage.googleapis.com/lwk-rag-videos/galaxy%20banner%20with%20GCP%20logo.png).  
+        2. Please create a story of about 1000 words in English based on [this video](https://storage.googleapis.com/lwk-rag-videos/Google%20-%20One%20more%20day%20until%20GoogleIO.mp4).  
     3. **Notes:**  
         1. The current application is freely hosted on a third-party platform, limited by the platform's functionality and capabilities. File uploads may not work successfully, so please try to use already uploaded images and videos.  
         2. The above images and videos have already been uploaded to the storage bucket, and you can directly copy their GCS URI links to the GCS link dialog box:  
