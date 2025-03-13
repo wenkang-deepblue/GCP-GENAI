@@ -106,7 +106,7 @@ elif section == "2. Text Generation":
     3. **Notes:**  
         1. Gemini API has a maximum output token limit of 8,192 tokens, so the text generation feature cannot generate content exceeding 8,192 tokens. To avoid generating overly long content, the prompt examples above only request two episodes of script;  
         2. If you need to generate longer content, please request only one part at a time;  
-        3. To maintain content consistency, you can leverage Gemini's long context capability by including both the plot outline and previously generated content as input prompts, as shown in the second paragraph of prompts in [this document](https://docs.google.com/document/d/15Nf4zkjA46wcFy_mr0miXU23w63FeauAzO5EVsVNJ80/edit?tab=t.0). Here are pre-generated scripts: [Episodes 1-2](https://drive.google.com/file/d/108oUg90b9Zpfov5uH13l-TyiwAF9H8v7/view?usp=drive_link&resourcekey=0-NI1DyNOVztJ1f8AFlKOpWQ), [Episodes 3-4](https://drive.google.com/file/d/1l9j3tHjAQJwjCuHaQtb4E0fThvf8oM34/view?usp=drive_link&resourcekey=0-xbmijuCti5xejbs5QwkQ3w).  
+        3. To maintain content consistency, you can leverage Gemini's long context capability by including both the plot outline and previously generated content as input prompts, as shown in the second paragraph of prompts in [this document](https://docs.google.com/document/d/15Nf4zkjA46wcFy_mr0miXU23w63FeauAzO5EVsVNJ80/edit?tab=t.0). Here are pre-generated scripts: [Episodes 1-2](https://storage.googleapis.com/lwk-rag-videos/%E7%9F%AD%E5%89%A7%E5%89%A7%E6%9C%AC(1-2%E9%9B%86).txt), [Episodes 3-4](https://storage.googleapis.com/lwk-rag-videos/%E7%9F%AD%E5%89%A7%E5%89%A7%E6%9C%AC(3-4%E9%9B%86).txt).  
     4. **Roadmap:**  
         1. Future versions will accept PDF documents and image uploads. Expected in early September (delayed with no ETA).
     """)
@@ -147,7 +147,24 @@ elif section == "5. Text Translation":
     1. **Scenario:**  
         Translation is currently one of the most used features by customers, whether for chat translation or content translation. The Text Translation section demonstrates Gemini's multilingual capabilities to customers.  
     2. **Prompt Examples:**  
-        1. Document: [History of Israel's Founding](https://drive.google.com/file/d/10EziEY88MHfwJ5Vfw525jsEXcUjpzXoO/view?usp=drive_link&resourcekey=0-113NtXpeFPGpKl4bEedg8g)  
+        1. Texts: 
+        第⼀章 ⽤铅笔创造出来的国家  
+        1915 年 12 ⽉ 16 ⽇，在伦敦唐宁街 10 号的⾸相官邸中，⼏个英国  
+        ⼈⽤⼀根铅笔和⼀张地图对⼏千公⾥外的中东⼟地进⾏了分割。  
+        此时，第⼀次世界⼤战已经爆发⼀年多，对阵的双⽅分别是以英  
+        国、法国、俄国为⾸的协约国，以及由德国、奥匈帝国、奥斯曼帝国  
+        组成的同盟国。这些英国⼈此次坐在⼀起，是为了讨论如何把奥斯曼  
+        帝国作为未来的战利品在协约国之间进⾏切分。  
+        其中⼀个叫做赛克斯（Sykes）的⼈提议说，不如⼤家从地图左边  
+        的城市 Acre 的字⺟ e 开始，画⼀条直线到地图右边 Kirkuk 的最后⼀  
+        个字⺟ k 上⾯；直线以上的区域为法国的势⼒范围，直线以下的区域  
+        为英国的势⼒范围。在座的⼈都觉得这条直线既简单⼜清楚，于是这  
+        个提议很快就得到了英国⾸相的同意。  
+        在与法国进⾏商议后，法国⼈也同意了以这条直线来划分英法两国  
+        在中东的势⼒范围。双⽅于次年的 5 ⽉ 16 ⽇签署了赛克斯-⽪克特秘  
+        密协定（Sykes-Picot Agreement），将这条⽤铅笔画下的直线以条约的  
+        形式确定了下来。协议中还规定，英法有权在各⾃势⼒范围内进⼀步  
+        划定国家间的边界。  
         2. Any large text you can find yourself  
     3. **Notes:**  
         1. The "Text Translation" section already has pre-written prompts in the code, so you don't need to enter any text like "Please translate the following text into English" in the prompt dialog box. Simply copy the text you want to translate into the prompt dialog box, select the target language in the left sidebar, and click "Start Translation".  
