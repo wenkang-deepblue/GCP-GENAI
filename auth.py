@@ -153,6 +153,7 @@ def login():
                     if invite_code in INVITE_CODES:
                         st.session_state.logged_in = True
                         st.session_state.user_email = "invited_user@example.com"
+                        st.session_state.invite_code = invite_code
                         st.experimental_rerun()
                     else:
                         st.error("邀请码无效，请重试")
