@@ -44,4 +44,4 @@ def vibtitle_link():
     # 构建带邀请码的Vibtitle链接
     vibtitle_url = f"https://vibtitle-en.deepblue.cc/?invite_code={invite_code}" if invite_code else "https://vibtitle-en.deepblue.cc"
     
-    return st.page_link(vibtitle_url, label="Vibtitle - 视频字幕生成器", icon="🎬")
+    return st.page_link(vibtitle_url, label="Vibtitle - a Video Subtitles Generator", icon="🎬")
