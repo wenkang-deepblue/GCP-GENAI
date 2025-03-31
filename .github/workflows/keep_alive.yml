@@ -1,0 +1,14 @@
+name: Keep Streamlit App Alive
+
+on:
+  schedule:
+    - cron: '0 10 * * *'
+
+jobs:
+  keep_alive:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Visit Streamlit App
+        run: |
+          curl -X GET "https://gcp-genai-zh.streamlit.app"
