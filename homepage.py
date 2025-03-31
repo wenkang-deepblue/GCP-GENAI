@@ -1,6 +1,6 @@
 import streamlit as st
 from auth import login, logout
-from components import english_version_link, save_invite_code
+from components import english_version_link, save_invite_code, vibtitle_link
 
 st.set_page_config(
     page_title="GCP GenAI",
@@ -17,6 +17,8 @@ manual_link = st.secrets["manual_link"]
 invite_code = st.query_params.get("invite_code", "")
 
 english_version_url = f"https://gcp-genai-en.streamlit.app/?invite_code={invite_code}" if invite_code else "https://gcp-genai-en.streamlit.app/"
+
+vibtitle_url = f"https://dev.liwenkang.com:7860/?invite_code={invite_code}" if invite_code else "https://dev.liwenkang.com:7860/"
 
 st.markdown(f"""
     <div style="background-color: #D2E3FC; padding: 10px; border-radius: 5px; text-align: center; margin-bottom: 20px;">
@@ -50,7 +52,7 @@ st.write("# 您好！欢迎使用 :blue[GCP Gen]:rainbow[AI] !")
 st.markdown(
     """
     <div style="font-family: 'Google Sans', sans-serif;">
-    GCP GenAI项目是利用<span style="color: #1A73E8;">Google Cloud Vertex AI</span>平台搭建的GenAI系统，其目的是演示Vertex AI各个模块可为企业实现的内容生成，媒体理解，RAG检索增强生成以及媒体搜索等功能。该项目所用到的Vertex AI模块包括：<span style="color: orange;">Gemini 1.5 Pro/Flash多模态模型，Agent Builder - Vertex AI Search，Imagen，DialogFlow</span>等等。Google Cloud中国销售及架构师团队愿意全力协助您利用Google强大的AI基础能力，以及GCP全面的AI生态及技术架构，搭建企业级的AI应用，帮助您的企业快速迭代，灵活开发，降低成本，提高效率。
+    GCP GenAI项目是利用<span style="color: #1A73E8;">Google Cloud Vertex AI</span>平台搭建的GenAI系统，其目的是演示Vertex AI各个模块可为企业实现的内容生成，媒体理解，RAG检索增强生成，媒体搜索以及视频字幕自动生成及翻译等功能。该项目所用到的Vertex AI模块包括：<span style="color: orange;">Gemini 1.5 Pro/Flash多模态模型，Agent Builder - Vertex AI Search，Imagen，DialogFlow</span>等等。Google Cloud中国销售及架构师团队愿意全力协助您利用Google强大的AI基础能力，以及GCP全面的AI生态及技术架构，搭建企业级的AI应用，帮助您的企业快速迭代，灵活开发，降低成本，提高效率。
     </div>
     """,
     unsafe_allow_html=True
@@ -87,6 +89,7 @@ with st.sidebar:
     st.page_link("pages/page_10_ecommerce_servicebot.py", label="电商客服平台", icon="🤖")
     st.page_link("pages/page_11_claude_chatbot.py", label="Claude3.5聊天机器人", icon="💬")
     st.page_link("pages/page_12_llama_chatbot.py", label="Llama3.1聊天机器人", icon="💬")
+    vibtitle_link()
     st.page_link("https://pantheon.corp.google.com/translation/hub", label="GCP翻译门户", icon="🌎")
     st.page_link("https://pantheon.corp.google.com/vertex-ai/generative/multimodal/gallery", label="GCP控制台 - Gemini", icon="🌎")
     st.page_link("https://pantheon.corp.google.com/gen-app-builder/engines", label="GCP控制台 - Agent Builder", icon="🌎")

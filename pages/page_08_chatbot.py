@@ -13,7 +13,7 @@ import streamlit.components.v1 as components
 import PyPDF2
 import time
 from auth import login, logout
-from components import english_version_link, save_invite_code
+from components import english_version_link, save_invite_code, vibtitle_link
 
 st.set_page_config(
     page_title="GCP GenAI",
@@ -171,6 +171,7 @@ with st.sidebar:
     st.page_link("pages/page_10_ecommerce_servicebot.py", label="电商客服平台", icon="🤖")
     st.page_link("pages/page_11_claude_chatbot.py", label="Claude3.5聊天机器人", icon="💬")
     st.page_link("pages/page_12_llama_chatbot.py", label="Llama3.1聊天机器人", icon="💬")
+    vibtitle_link()
     st.page_link("https://pantheon.corp.google.com/translation/hub", label="GCP翻译门户", icon="🌎")
     st.page_link("https://pantheon.corp.google.com/vertex-ai/generative/multimodal/gallery", label="GCP控制台 - Gemini", icon="🌎")
     st.page_link("https://pantheon.corp.google.com/gen-app-builder/engines", label="GCP控制台 - Agent Builder", icon="🌎")
