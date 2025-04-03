@@ -8,10 +8,10 @@ def login():
     if "logged_in" not in st.session_state:
         save_invite_code()
         
-        # 从会话状态获取邀请码
+        # Get the invite code from the session state
         auto_invite_code = st.session_state.get("invite_code", "")
         
-        # 如果有有效邀请码，自动登录
+        # If there is a valid invite code, automatically login
         if auto_invite_code in INVITE_CODES:
             st.session_state.logged_in = True
             st.session_state.user_email = "invited_user@example.com"

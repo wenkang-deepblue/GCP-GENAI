@@ -95,7 +95,7 @@ left_co, cent_co,last_co = st.columns([0.24,0.51,0.25])
 with cent_co:
     st.subheader('', divider='rainbow')
     
-# Sidebar interface
+# Streamlit sidebar interface
 with st.sidebar:
     left_co, cent_co,last_co = st.columns([0.34,0.33,0.33])
     with cent_co:
@@ -194,7 +194,7 @@ with st.sidebar:
     st.page_link("pages/terms_of_service.py", label="Terms of Service", icon="📄")
     st.page_link("pages/privacy_policy.py", label="Privacy Policy", icon="🔒")
         
-# Handle uploaded files
+# Function of handling uploaded files
 def process_uploaded_files(uploaded_files):
     if uploaded_files:
         new_files = []
@@ -260,7 +260,7 @@ def generate_text(prompt, chat, messages):
     )
     return response
 
-# Define model parameters
+# Model parameters
 generation_config = {
     "max_output_tokens": 8192,
     "temperature": temperature,
@@ -289,12 +289,10 @@ if system_instruction_option and (system_instruction_option != st.session_state.
     )
     st.session_state.chat = st.session_state.model.start_chat()
 
-# Create a container for all conversation content
 chat_container = st.container()
 
 # Display chat history and new messages in the container
 with chat_container:
-    # Display chat history
     for idx, msg in enumerate(st.session_state.messages):
         st.chat_message(msg["role"]).write(msg["content"])
         if "files" in msg:
@@ -306,7 +304,6 @@ with chat_container:
                 elif file_data['mime_type'] in ['application/pdf', 'text/plain']:
                     st.text_area("File Content Preview", file_data['preview'], height=200, key=f"history_{idx}_{file_data['id']}")
 
-    # Handle new API calls and responses
     if st.session_state.need_api_call:
         with st.chat_message("assistant"):
             thinking_placeholder = st.empty()

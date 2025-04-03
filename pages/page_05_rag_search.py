@@ -109,7 +109,7 @@ with st.sidebar:
     st.page_link("pages/privacy_policy.py", label="Privacy Policy", icon="🔒")
 
 # Set query prompt
-query = st.text_area("Please input your question:", "")  # Replace this with your actual query
+query = st.text_area("Please input your question:", "")
 body = {
     "query": {"input": query},
     "summarySpec": {
@@ -159,10 +159,7 @@ with st.form("myform"):
             answer = response.json()["reply"]["reply"]
         
             st.info(response.json()["reply"]["reply"] if response.status_code == 200 else response.text)
-# Check request response code and return request result
 
-    # Check if the answer contains keywords and display corresponding images and links
-    
             for keyword in content_dict:
                 if keyword in answer:
                     content=content_dict[keyword]

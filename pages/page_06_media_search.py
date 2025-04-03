@@ -148,8 +148,6 @@ with st.form("myform"):
         
             st.info(response.json()["reply"]["reply"] if response.status_code == 200 else response.text)
 
-    # Check if the answer contains keywords and display corresponding images and links
-    
             for keyword in content_dict:
                 if keyword in answer:
                     content=content_dict[keyword]

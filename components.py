@@ -34,14 +34,13 @@ def chinese_version_link():
     """ 
 
 def vibtitle_link():
-    """在侧边栏顶部添加Vibtitle链接，自动传递邀请码"""
-    # 先保存邀请码到会话状态
+    """Add Vibtitle link at the top of the sidebar, automatically passing the invite code"""
     save_invite_code()
     
-    # 从会话状态获取邀请码
+    # Get invite code from session state
     invite_code = st.session_state.get("invite_code", "")
     
-    # 构建带邀请码的Vibtitle链接
+    # Build Vibtitle link with invite code
     vibtitle_url = f"https://vibtitle-en.deepblue.cc/?invite_code={invite_code}" if invite_code else "https://vibtitle-en.deepblue.cc"
     
     return st.page_link(vibtitle_url, label="Vibtitle - Video Subtitles Generator", icon="🎬")

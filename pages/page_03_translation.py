@@ -59,7 +59,7 @@ with cent_co:
 # Define translation_option as a global variable
 translation_option = None
     
-# Continue streamlit sidebar interface
+# Streamlit sidebar interface
 with st.sidebar:
     left_co, cent_co,last_co = st.columns([0.34,0.33,0.33])
     with cent_co:
@@ -124,7 +124,7 @@ with st.sidebar:
     st.page_link("pages/terms_of_service.py", label="Terms of Service", icon="📄")
     st.page_link("pages/privacy_policy.py", label="Privacy Policy", icon="🔒")
 
-# Define the function to generate text
+# Function of generating text
 def generate_text(prompt):
   vertexai.init(project="lwk-genai-test", location="us-central1")
   model = GenerativeModel("gemini-1.5-flash-002")
@@ -141,7 +141,7 @@ def generate_text(prompt):
 
   return generated_text
 
-# Define generation model parameters
+# Model parameters
 generation_config = {
     "max_output_tokens": 8192,
     "temperature": temperature,
@@ -155,7 +155,7 @@ safety_settings = {
     generative_models.HarmCategory.HARM_CATEGORY_HARASSMENT: generative_models.HarmBlockThreshold.OFF,
 }
 
-# Continue streamlit interface
+# Streamlit interface
 st.write("Please note: To help you distinguish the translation results, please choose either 'Upload Document' or 'Input Text'.")
 
 uploaded_files = st.file_uploader("Please upload the documents you need to translate. You can select multiple documents to upload:", type=("txt"), accept_multiple_files=True)

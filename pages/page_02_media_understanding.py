@@ -58,7 +58,7 @@ left_co, cent_co,last_co = st.columns([0.24,0.51,0.25])
 with cent_co:
     st.subheader('', divider='rainbow')
 
-# Continue streamlit sidebar interface
+# Streamlit sidebar interface
 with st.sidebar:
     left_co, cent_co,last_co = st.columns([0.34,0.33,0.33])
     with cent_co:
@@ -84,13 +84,12 @@ with st.sidebar:
 
     uploaded_file = st.file_uploader("Upload file to Google Cloud Storage", type=("mp4", "wmv", "jpg", "png"))
     
-    # Define globally available
     file_type = None
     
     if uploaded_file is not None:
         file_type = uploaded_file.name.split(".")[-1]
    
-    # Define function to upload file to storage bucket
+    # Function of uploading file to storage bucket
     def upload_to_gcs(uploaded_file, bucket_name, destination_blob_name, source_file_name):
         """Upload file to Google Cloud Storage"""
         with tempfile.NamedTemporaryFile(delete=False) as temp_file:
@@ -165,7 +164,7 @@ with st.sidebar:
     st.page_link("pages/terms_of_service.py", label="Terms of Service", icon="📄")
     st.page_link("pages/privacy_policy.py", label="Privacy Policy", icon="🔒")
 
-# Define function to generate text
+# Function of generating text
 def generate_text(prompt):
     responses = model.generate_content(
         [prompt],
@@ -180,7 +179,7 @@ def generate_text(prompt):
 
     return generated_text
 
-# Define function for video understanding
+# Function of generating video text
 def generate_video_text(prompt):
     video_responses = model.generate_content(
         [media, prompt],
@@ -195,7 +194,7 @@ def generate_video_text(prompt):
 
     return generated_video_text
 
-# Define generation model parameters
+# Model parameters
 generation_config = {
     "max_output_tokens": 8192,
     "temperature": temperature,
@@ -209,10 +208,9 @@ safety_settings = {
     generative_models.HarmCategory.HARM_CATEGORY_HARASSMENT: generative_models.HarmBlockThreshold.BLOCK_ONLY_HIGH,
 }
 
-# Continue streamlit interface
+# Streamlit interface
 gcs_file = st.text_input("Please input the GCS link of your file", placeholder='gs://"Your bucket name"/"Your file name"')
 
-# Define globally available
 media_mime_type = None
 
 file_extension = None

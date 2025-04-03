@@ -27,10 +27,10 @@ with st.sidebar:
             logout()
 
 def custom_page_link(url, label, icon, new_tab=False):
-    # 获取当前会话状态中的邀请码
+    # Get the invite code from the current session state
     invite_code = st.session_state.get("invite_code", "")
     
-    # 添加问号作为查询参数的开始
+    # Add a question mark as the start of the query parameter
     if invite_code:
         if "?" in url:
             url = f"{url}&invite_code={invite_code}"

@@ -99,7 +99,7 @@ left_co, cent_co,last_co = st.columns([0.01,0.98,0.01])
 with cent_co:
     st.subheader('', divider='rainbow')
 
-# Sidebar
+# Streamlit sidebar interface
 with st.sidebar:
     left_co, cent_co,last_co = st.columns([0.34,0.33,0.33])
     with cent_co:
@@ -163,7 +163,7 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-# Define title colors
+# Title colors
 title_colors = {
     "main_title": "#4285F4",  # Blue
     "travel_info": "#9334e6",  # Purple
@@ -174,7 +174,7 @@ title_colors = {
     "attractions": "#F439A0", # Pink
 }
 
-# Create colored title function
+# Colored title function
 def colored_title(text, color, class_name="title"):
     return f'<div class="{class_name}" style="color: {color};">{text}</div>'
 
@@ -289,7 +289,7 @@ def process_uploaded_files(uploaded_files):
         st.session_state[f'{APP_ID}_current_files'] = new_files
         st.session_state[f'{APP_ID}_file_uploaded'] = True
 
-# Generate text function
+# Function of generating text
 def generate_text(prompt, chat, messages):
     message_parts = [prompt]
     for msg in messages:
@@ -330,7 +330,7 @@ def generate_text(prompt, chat, messages):
         st.error(f"Error generating reply: {e}")
         return None
 
-# Process model response function
+# Function of processing model response
 def process_model_response(response):
     text_response = response.text
     logging.debug(f"Raw AI response: {text_response}")
@@ -361,11 +361,9 @@ def process_model_response(response):
 with col1:
     st.markdown(colored_title("Chat with Your AI Travel Advisor", title_colors["main_title"]), unsafe_allow_html=True)
 
-    # Create a container to hold all chat content
     chat_container = st.container()
     
     # File upload
-    # Modify file uploader section
     uploaded_files = st.file_uploader("Upload images, videos, PDFs or TXT files", type=['jpg', 'jpeg', 'png', 'mp4', 'pdf', 'txt'], accept_multiple_files=True, key=f"file_uploader_{st.session_state[f'{APP_ID}_file_key']}")
     if uploaded_files:
         process_uploaded_files(uploaded_files)
@@ -387,7 +385,6 @@ with col1:
     
     # Display chat history and new messages in the container
     with chat_container:
-        # Display chat history
         for msg in st.session_state[f'{APP_ID}_messages']:
             st.chat_message(msg["role"]).write(msg["content"])
             if "files" in msg:
@@ -440,7 +437,7 @@ block_styles = {
     "shopping": {"bg_color": "#FFF3E0", "text_color": "#333333", "font": "Arial", "font_size": "16px"}
 }
 
-# Create styled block function
+# Function of creating styled block
 def create_styled_block(title, content, style):
     content_html = "<br>".join([f"{item}" for item in content.split('\n')]) if content.strip() else ""
     content_div = f'<div style="color: {style["text_color"]}; font-family: {style["font"]};">{content_html}</div>' if content_html else ""

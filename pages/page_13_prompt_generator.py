@@ -57,7 +57,7 @@ left_co, cent_co,last_co = st.columns([0.24,0.51,0.25])
 with cent_co:
     st.subheader('', divider='rainbow')
     
-# Continue streamlit sidebar interface
+# Streamlit sidebar interface
 with st.sidebar:
     left_co, cent_co,last_co = st.columns([0.34,0.33,0.33])
     with cent_co:
@@ -119,7 +119,6 @@ with st.sidebar:
     st.page_link("pages/terms_of_service.py", label="Terms of Service", icon="📄")
     st.page_link("pages/privacy_policy.py", label="Privacy Policy", icon="🔒")
 
-# 定义生成文本的函数
 def generate_prompt(task_or_prompt, selected_language):
   vertexai.init(project="lwk-genai-test", location="us-central1")
 
@@ -188,7 +187,7 @@ The final prompt you output should adhere to the following structure below. Do n
 
   return generated_prompt
 
-# 定义模型参数
+# Model parameters
 generation_config = {
     "max_output_tokens": 8192,
     "temperature": temperature,
@@ -214,7 +213,7 @@ safety_settings = [
     ),
 ]
 
-#Continue streamlit interface
+# Streamlit interface
 task_or_prompt = st.text_area("Please enter your task description or existing prompt:", "")
 
 uploaded_files = st.file_uploader("If you need to process documents, please upload them here. You can select multiple documents:", type=("txt"), accept_multiple_files=True)

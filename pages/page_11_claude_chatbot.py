@@ -88,7 +88,7 @@ left_co, cent_co,last_co = st.columns([0.24,0.51,0.25])
 with cent_co:
     st.subheader('', divider='rainbow')
 
-# Sidebar interface
+# Streamlit sidebar interface
 with st.sidebar:
     left_co, cent_co,last_co = st.columns([0.34,0.33,0.33])
     with cent_co:
@@ -177,7 +177,7 @@ with st.sidebar:
     st.page_link("pages/terms_of_service.py", label="Terms of Service", icon="📄")
     st.page_link("pages/privacy_policy.py", label="Privacy Policy", icon="🔒")
         
-# Handle uploaded file
+# Function of handling uploaded file
 def process_uploaded_file(uploaded_file):
     if uploaded_file is not None:
         file_id = str(uuid.uuid4())
@@ -246,7 +246,7 @@ with chat_container:
 
 thinking_placeholder = st.empty()
 
-# Define image preview function
+# Function of image preview
 def image_preview():
     if st.session_state[f'{APP_ID}_current_file']:
         file_data = st.session_state[f'{APP_ID}_current_file']
@@ -259,7 +259,6 @@ def image_preview():
             
 uploaded_file = st.file_uploader("Upload image file", type=['jpg', 'jpeg', 'png'], key=f"file_uploader_{st.session_state[f'{APP_ID}_file_key']}")
 
-# Create a placeholder for preview
 preview_placeholder = st.empty()
 
 if uploaded_file is not None:
@@ -274,7 +273,6 @@ if user_input:
         st.error("👈 Please define a role: select from the menu or customize")
         st.stop()
     else:
-        # Clear file preview
         preview_placeholder.empty()
         
         user_message = {"role": "user", "content": user_input}
@@ -283,7 +281,6 @@ if user_input:
         
         st.session_state[f'{APP_ID}_messages'].append(user_message)
         
-        # Update chat history
         with chat_container:
             st.chat_message("user").write(user_input)
             if st.session_state[f'{APP_ID}_file_uploaded']:
@@ -300,7 +297,6 @@ if user_input:
             unsafe_allow_html=True
         )
         
-        # Handle API call and response
         with chat_container:
             with st.chat_message("assistant"):
                 response_placeholder = st.empty()
@@ -320,7 +316,6 @@ if user_input:
         if st.session_state[f'{APP_ID}_file_uploaded']:
             clear_file()
 
-# Scroll to the bottom of the page
 st.markdown('<script>window.scrollTo(0, document.body.scrollHeight);</script>', unsafe_allow_html=True)
 
 

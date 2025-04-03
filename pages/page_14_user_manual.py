@@ -63,10 +63,8 @@ with cent_co:
 
 st.text("")
 
-# Create table of contents
 st.markdown("# Table of Contents")
 
-# Create a selection box as navigation
 section = st.selectbox(
     "Select section to navigate",
     [
@@ -89,7 +87,6 @@ section = st.selectbox(
     ]
 )
 
-# Display content based on selection
 if section == "1. Introduction":
     st.markdown("## 1. Introduction")
     st.markdown("""

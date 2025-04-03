@@ -2,7 +2,6 @@ import streamlit as st
 from auth import login, logout
 from components import chinese_version_link, save_invite_code, vibtitle_link
 
-#this will showed on the top of user's
 st.set_page_config(
     page_title="GCP GenAI",
     page_icon="👋",
