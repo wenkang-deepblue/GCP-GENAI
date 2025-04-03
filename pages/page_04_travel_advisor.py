@@ -335,7 +335,7 @@ def process_model_response(response):
         json_data = text_response[json_start + 8:].strip()
         logging.debug(f"提取的JSON数据: {json_data}")
         try:
-            # 尝试移除可能的额外文本
+            # 移除可能的额外文本
             json_end = json_data.rfind('}')
             if json_end != -1:
                 json_data = json_data[:json_end+1]
@@ -356,11 +356,10 @@ def process_model_response(response):
 with col1:
     st.markdown(colored_title("与您的AI旅游顾问对话", title_colors["main_title"]), unsafe_allow_html=True)
 
-    # 创建一个容器来放置所有对话内容
+    # 创建容器放置对话内容
     chat_container = st.container()
     
     # 文件上传
-    # 修改文件上传器部分
     uploaded_files = st.file_uploader("上传图片、视频、PDF或TXT文件", type=['jpg', 'jpeg', 'png', 'mp4', 'pdf', 'txt'], accept_multiple_files=True, key=f"file_uploader_{st.session_state[f'{APP_ID}_file_key']}")
     if uploaded_files:
         process_uploaded_files(uploaded_files)
@@ -394,7 +393,6 @@ with col1:
                     elif file_data['mime_type'] in ['application/pdf', 'text/plain']:
                         st.text_area("文件内容预览", file_data['extracted_text'], height=200)
     
-        # 处理新的用户输入
         # 处理新的用户输入
         if user_input:
             user_message = {"role": "user", "content": user_input}
@@ -436,7 +434,7 @@ block_styles = {
     "shopping": {"bg_color": "#FFF3E0", "text_color": "#333333", "font": "Arial", "font_size": "16px"}
 }
 
-# 创建带样式的板块函数
+# 带样式的板块函数
 def create_styled_block(title, content, style):
     content_html = "<br>".join([f"{item}" for item in content.split('\n')]) if content.strip() else ""
     content_div = f'<div style="color: {style["text_color"]}; font-family: {style["font"]};">{content_html}</div>' if content_html else ""

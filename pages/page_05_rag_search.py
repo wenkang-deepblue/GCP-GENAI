@@ -157,10 +157,8 @@ with st.form("myform"):
             answer = response.json()["reply"]["reply"]
         
             st.info(response.json()["reply"]["reply"] if response.status_code == 200 else response.text)
-# 检查请求响应代码并返回请求结果
 
-    # 检查回答是否包含关键词，并展示对应的图片和链接
-    
+            # 检查回答是否包含关键词，并展示对应的图片和链接
             for keyword in content_dict:
                 if keyword in answer:
                     content=content_dict[keyword]
@@ -170,7 +168,7 @@ with st.form("myform"):
                     left_co, cent_co,last_co = st.columns([0.44,0.28,0.28])
                     with cent_co:
                         st.write(f'[在线阅读]({content["file"]})')         
-                    break  # 只展示第一个匹配的关键词
+                    break
             else:
                 st.write("未找到匹配关键词")
 

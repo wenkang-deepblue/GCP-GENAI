@@ -150,7 +150,7 @@ safety_settings = {
     generative_models.HarmCategory.HARM_CATEGORY_HARASSMENT: generative_models.HarmBlockThreshold.OFF,
 }
 
-#继续streamlit界面
+# streamlit界面
 prompt = st.text_area("请输入您的提示词：", "")
 
 uploaded_files = st.file_uploader("如果您需要处理文档，请在这里上传，可以同时选择多份文档上传：", type=("txt"), accept_multiple_files=True)

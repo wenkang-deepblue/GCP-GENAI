@@ -115,7 +115,6 @@ generation_model = ImageGenerationModel.from_pretrained("imagen-3.0-generate-001
 def generate_image(prompt):
     images = generation_model.generate_images(
         prompt=prompt,
-        # Optional parameters
         number_of_images=number_of_images,
         language="auto",
         aspect_ratio=aspect_ratio,

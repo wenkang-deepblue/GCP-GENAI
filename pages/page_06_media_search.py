@@ -103,7 +103,7 @@ with st.sidebar:
     st.page_link("pages/terms_of_service.py", label="用户服务协议", icon="📄")
     st.page_link("pages/privacy_policy.py", label="用户隐私政策", icon="🔒")
 
-query = st.text_area("请输入您的问题:", "")  # Replace this with your actual query
+query = st.text_area("请输入您的问题:", "")
 body = {
     "query": {"input": query},
     "summarySpec": {
@@ -148,8 +148,7 @@ with st.form("myform"):
         
             st.info(response.json()["reply"]["reply"] if response.status_code == 200 else response.text)
 
-    # 检查回答是否包含关键词，并展示对应的图片和链接
-    
+            # 检查回答是否包含关键词，并展示对应的图片和链接
             for keyword in content_dict:
                 if keyword in answer:
                     content=content_dict[keyword]
@@ -159,7 +158,7 @@ with st.form("myform"):
                     left_co, cent_co,last_co = st.columns([0.44,0.28,0.28])
                     with cent_co:
                         st.write(f'[在线观看]({content["file"]})')         
-                    break  # 只展示第一个匹配的关键词
+                    break
             else:
                 st.write("未找到匹配关键词")
 

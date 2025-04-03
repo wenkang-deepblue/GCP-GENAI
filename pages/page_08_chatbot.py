@@ -289,7 +289,7 @@ if system_instruction_option and (system_instruction_option != st.session_state.
     )
     st.session_state.chat = st.session_state.model.start_chat()
 
-# 创建一个容器放置所有对话内容
+# 创建容器放置所有对话内容
 chat_container = st.container()
 
 # 在容器中显示聊天历史和新消息

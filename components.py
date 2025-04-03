@@ -35,7 +35,7 @@ def english_version_link():
 
 def vibtitle_link():
     """在侧边栏顶部添加Vibtitle链接，自动传递邀请码"""
-    # 先保存邀请码到会话状态
+    # 保存邀请码到会话状态
     save_invite_code()
     
     # 从会话状态获取邀请码

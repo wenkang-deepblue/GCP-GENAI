@@ -63,7 +63,6 @@ def custom_page_link(url, label, icon, new_tab=False):
     else:
         st.page_link(url, label=label, icon=icon)
 
-# Streamlit UI
 left_co, cent_co,last_co = st.columns([0.35,0.35,0.3])
 with cent_co:
     st.title(":blue[GCP Gen]:rainbow[AI]")

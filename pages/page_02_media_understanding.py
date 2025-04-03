@@ -85,13 +85,13 @@ with st.sidebar:
 
     uploaded_file = st.file_uploader("上传文件到 Google Cloud Storage", type=("mp4", "wmv", "jpg", "png"))
     
-    #定义全局可用
+    # 定义全局可用
     file_type = None
     
     if uploaded_file is not None:
         file_type = uploaded_file.name.split(".")[-1]
    
-    #定义上传文件到存储桶的函数
+    # 上传文件到存储桶的函数
     def upload_to_gcs(uploaded_file, bucket_name, destination_blob_name, source_file_name):
         """将文件上传到 Google Cloud Storage"""
         with tempfile.NamedTemporaryFile(delete=False) as temp_file:
@@ -165,7 +165,7 @@ with st.sidebar:
     st.page_link("pages/terms_of_service.py", label="用户服务协议", icon="📄")
     st.page_link("pages/privacy_policy.py", label="用户隐私政策", icon="🔒")
 
-# 定义生成文本的函数
+# 生成文本的函数
 def generate_text(prompt):
     responses = model.generate_content(
         [prompt],
@@ -180,7 +180,7 @@ def generate_text(prompt):
 
     return generated_text
 
-#定义视频理解的函数
+# 视频理解的函数
 def generate_video_text(prompt):
     video_responses = model.generate_content(
         [media, prompt],
@@ -195,7 +195,7 @@ def generate_video_text(prompt):
 
     return generated_video_text
 
-# 定义生成模型参数
+# 生成模型参数
 generation_config = {
     "max_output_tokens": 8192,
     "temperature": temperature,
@@ -209,10 +209,10 @@ safety_settings = {
     generative_models.HarmCategory.HARM_CATEGORY_HARASSMENT: generative_models.HarmBlockThreshold.BLOCK_ONLY_HIGH,
 }
 
-#继续streamlit界面
+# streamlit界面
 gcs_file = st.text_input("请输入您的文件的GCS链接", placeholder='gs://"您的存储桶名字"/"您的文件名"')
 
-#定义全局可用
+# 全局可用
 media_mime_type = None
 
 file_extension = None

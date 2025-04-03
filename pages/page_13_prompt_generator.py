@@ -45,7 +45,7 @@ creds.refresh(auth_req)
 
 vertexai.init(project="lwk-genai-test", location="us-central1", credentials=creds)
 
-# Streamlit 应用界面
+# Streamlit应用界面
 left_co, cent_co,last_co = st.columns([0.35,0.32,0.33])
 with cent_co:
     st.title(":blue[GCP Gen]:rainbow[AI]")
@@ -117,7 +117,7 @@ with st.sidebar:
     st.page_link("pages/terms_of_service.py", label="用户服务协议", icon="📄")
     st.page_link("pages/privacy_policy.py", label="用户隐私政策", icon="🔒")
 
-# 定义生成文本的函数
+# 生成文本的函数
 def generate_prompt(task_or_prompt, selected_language):
   vertexai.init(project="lwk-genai-test", location="us-central1")
 
@@ -212,7 +212,7 @@ safety_settings = [
     ),
 ]
 
-#继续streamlit界面
+# streamlit界面
 task_or_prompt = st.text_area("请输入您的任务描述或现有提示词：", "")
 
 uploaded_files = st.file_uploader("如果您需要处理文档，请在这里上传，可以同时选择多份文档上传：", type=("txt"), accept_multiple_files=True)

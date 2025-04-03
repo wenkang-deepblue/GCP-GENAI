@@ -121,7 +121,7 @@ with st.sidebar:
     st.page_link("pages/terms_of_service.py", label="用户服务协议", icon="📄")
     st.page_link("pages/privacy_policy.py", label="用户隐私政策", icon="🔒")
 
-# 定义生成文本的函数
+# 生成文本的函数
 def generate_text(prompt):
   vertexai.init(project="lwk-genai-test", location="us-central1")
   model = GenerativeModel("gemini-1.5-flash-002")
@@ -138,7 +138,7 @@ def generate_text(prompt):
 
   return generated_text
 
-# 定义生成模型参数
+# 生成模型参数
 generation_config = {
     "max_output_tokens": 8192,
     "temperature": temperature,
@@ -152,7 +152,7 @@ safety_settings = {
     generative_models.HarmCategory.HARM_CATEGORY_HARASSMENT: generative_models.HarmBlockThreshold.OFF,
 }
 
-#继续streamlit界面
+# streamlit界面
 st.write("请注意：为了方便您区分翻译结果，请只选择“上传文档”或“输入文字”。")
 
 uploaded_files = st.file_uploader("请上传您需要翻译的文档，可以同时选择多份文档上传：", type=("txt"), accept_multiple_files=True)
