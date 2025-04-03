@@ -77,7 +77,7 @@ def login():
                                         placeholder="请输入邀请码", 
                                         type="password")
             
-            # 自定义登录按钮
+            # 登录按钮
             button_gif_url = "https://storage.googleapis.com/ghackathon/blue-gold.gif"
             
             st.markdown(
@@ -146,7 +146,6 @@ def login():
                 unsafe_allow_html=True
             )
             
-            # 居中按钮
             btn_col1, btn_col2, btn_col3 = st.columns([1, 5, 1])
             with btn_col2:
                 if st.button("登录"):
